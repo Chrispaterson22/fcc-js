@@ -1,0 +1,9 @@
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z]\d\d+$|^[a-z][a-z]+\d*$/i; // Change this line
+let result = userCheck.test(username);
+// ^[a-z] first character must be a letter
+// \d\d+$ as only checking for one character at start must have min 2 digits after
+// | OR
+// ^[a-z][a-z]+ checks for min two alphabet characters at beginning
+// \d*$ optional 0 or more digits thereafter at end.
+// /i accept upper and lowercase letters
