@@ -1,0 +1,4 @@
+let myString = "Eleanor Roosevelt";
+let myRegex = /^(Eleanor|Franklin).*Roosevelt/g; // Change this line
+let result = myRegex.test(myString); // Change this line
+// .* confuses me. my understanding is that it is matching any character '.' and '*' signifies zero or more. so matches to zero or more of any character. make sence now! 
