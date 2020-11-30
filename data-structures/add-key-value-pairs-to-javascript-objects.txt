@@ -1,0 +1,17 @@
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28
+};
+
+// Only change code below this line
+let grapesQty = 35;
+let bananasQty = 13;
+let strawberriesQty = 27;
+
+foods.strawberries = strawberriesQty;
+foods.bananas = bananasQty;
+foods.grapes = grapesQty;
+// Only change code above this line
+
+console.log(foods);
