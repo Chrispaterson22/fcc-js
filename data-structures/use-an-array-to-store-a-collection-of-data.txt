@@ -1,0 +1,1 @@
+let yourArray = [22, 11, "November", "Chips", false, true];
