@@ -1,0 +1,13 @@
+function booWho(bool) {
+  if (typeof bool === "boolean") {
+    return true;
+  }
+
+  return false;
+  
+}
+
+booWho(null);
+console.log(booWho(true));
+console.log(booWho(false));
+console.log(booWho({ "a": 1 }));

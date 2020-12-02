@@ -1,0 +1,8 @@
+function frankenSplice(arr1, arr2, n) {
+  let newArr = arr2.slice(0); //copy arr2 and assign to var newArr, using slice()
+  newArr.splice(n, 0, ...arr1); // insert arr1 into newArr at n index using splice()
+  return newArr;
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
