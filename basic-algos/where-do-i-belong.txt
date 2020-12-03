@@ -1,0 +1,19 @@
+function getIndexToIns(arr, num) {
+  let index = 0;
+  let srtArr = arr.sort((a, b) => a- b);
+  
+  for (let i = 0; i < srtArr.length; i++) {
+    if ( srtArr[i] >= num ) {
+      index = i;
+      return index;
+    } 
+  }
+  if (num > srtArr[srtArr.length - 1]) {
+      index = srtArr.length;
+      return index;
+    }
+  return index;
+}
+
+getIndexToIns([40, 60], 50);
+getIndexToIns([10, 20, 30, 40, 50], 30)
