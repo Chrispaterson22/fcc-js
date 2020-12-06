@@ -1,0 +1,14 @@
+function sumAll(arr) {
+  let compArr = [...arr];
+  let max = Math.max(...compArr);
+  let min = Math.min(...compArr);
+  //console.log("Max: " + max + ", Min: " + min);
+  for (let i = min + 1; i < max; i++) {
+    compArr.push(i);
+  }
+  //console.log(compArr);
+  return compArr.reduce((sum, num) => sum + num, 0);
+}
+
+sumAll([1, 4]);
+console.log(sumAll([1, 4]));
