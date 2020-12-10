@@ -1,0 +1,19 @@
+function pairElement(str) {
+  // create object literals with 'pairs'
+  var pairs = {
+    A: "T",
+    T: "A",
+    C: "G",
+    G: "C"
+  };
+
+  var arr = str.split(""); // split string into array
+
+  // use map() to 'pair' value in arr with corresponding value in object
+  return arr.map(x => [x, pairs[x]]);
+}
+
+let test = pairElement("GCG");
+let test2 = pairElement("ATCGA");
+console.log(test);
+console.log(test2);
