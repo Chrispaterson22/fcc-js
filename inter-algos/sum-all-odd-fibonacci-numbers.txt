@@ -1,0 +1,17 @@
+function sumFibs(num) {
+  var prevNo = 0;
+  var curNo = 1;
+  var fibSum = 0;
+
+  while (curNo <= num) {
+    if (curNo % 2 !== 0) {
+      fibSum += curNo;
+    }
+    curNo += prevNo;
+    prevNo = curNo - prevNo;
+  }
+  return fibSum;
+}
+
+let test = sumFibs(4);
+console.log(test);
