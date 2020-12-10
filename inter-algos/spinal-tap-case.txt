@@ -1,0 +1,8 @@
+function spinalCase(str) {
+  return str.split(/\s|_|(?=[A-Z])/).join("-").toLowerCase();
+}
+
+let test = spinalCase('This Is Spinal Tap');
+let test2 = spinalCase("TheAndyGriffith_Show");
+console.log(test);
+console.log(test2);
