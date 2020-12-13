@@ -1,0 +1,27 @@
+function sumPrimes(num) {
+
+  var sum = 0;
+
+  function getPrimes(max) {
+    var sieve = [], i, j, primes = [];
+    for (i = 2; i <= max; ++i) {
+        if (!sieve[i]) {
+            primes.push(i);
+            for (j = i << 1; j <= max; j += i) {
+                sieve[j] = true;
+            }
+        }
+    }
+    console.log(primes);
+    return primes;
+  }
+
+let primes = getPrimes(num);
+for (let k = 0; k < primes.length; k++) {
+  sum += primes[k];
+}
+  console.log(sum);
+  return sum;
+}
+
+sumPrimes(977);
