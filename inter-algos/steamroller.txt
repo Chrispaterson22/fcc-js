@@ -1,0 +1,11 @@
+function steamrollArray(arr) {
+  // use concat to concat 1st level arrays
+  let flatArr = [].concat(...arr);
+  // Ternary while arrays present, do concat until none then return flat array
+  return flatArr.some(Array.isArray) ? steamrollArray(flatArr) : flatArr;
+  // Love this solution!
+  
+}
+
+let test = steamrollArray([1, [2], [3, [[4]]]]);
+console.log(test);
