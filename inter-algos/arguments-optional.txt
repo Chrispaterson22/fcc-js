@@ -1,0 +1,15 @@
+function addTogether(first, second) {
+  if (typeof first !== "number") {
+    return undefined;
+  }
+  const sum = second =>
+    typeof second === "number" ? first + second : undefined;
+  return typeof second === "undefined" ? second => sum(second) : sum(second);
+  
+}
+
+let test = addTogether(2,5);
+var sumTwoAnd = addTogether(2);
+let test2 = sumTwoAnd(10)
+console.log(test);
+console.log(test2);
