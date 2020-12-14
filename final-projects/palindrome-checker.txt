@@ -1,0 +1,19 @@
+function palindrome(str) {
+  const regEx = /[\W_]/g;
+  str = str.toLowerCase().replace(regEx, "");
+
+//console.log(str);
+
+  var len = str.length - 1;
+  for (let i = 0; i <= len/2; i++) {
+    if (str[i] !== str[len - i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+
+
+let test = palindrome("My age is 0, 0 si ega ym.");
+console.log(test);
