@@ -10,8 +10,8 @@ function checkCashRegister(price, cash, cid) {
    return total.toFixed(2);
  }
 
- console.log(currencyAvailable);
- console.log(changeDue);
+ console.log("Currency Available: " + currencyAvailable);
+ console.log("Change Due: " + changeDue);
 
  if (currencyAvailable < changeDue) {
    return {status: "INSUFFICIENT_FUNDS", change: []};
@@ -20,10 +20,10 @@ function checkCashRegister(price, cash, cid) {
    return {status: "CLOSED", change: cid};
  }
  else {
-   return {status: "OPEN", change: [getChangeToReturn(changeDue, currencyAvailable)]};
+   return {status: "OPEN", change: getChangeToReturn(changeDue, cid)};
  }
 
- function getChangeToReturn(changeDue, currencyAvailable) {
+ function getChangeToReturn(changeDue, cid) {
    const change = [];
    const currencyNameValue = {
       PENNY: 0.01,
@@ -38,12 +38,30 @@ function checkCashRegister(price, cash, cid) {
    };
 
    for (let i = cid.length - 1; i >= 0; i--) {
-     
-   }
+     const currencyName = cid[i][0];
+     const currencyTotal = cid[i][1];
+     const currencyValue = currencyNameValue[currencyName];
 
+     let currencyAmountToReturn = 0;
+     let currencyAmount = (currencyTotal/currencyValue).toFixed(2);
+
+     while (changeDue >= currencyValue && currencyAmount > 0) {
+       changeDue -= currencyValue;
+       currencyAmount--;
+       currencyAmountToReturn++;
+     }
+
+     if (currencyAmountToReturn > 0) {
+       change.push([currencyName, currencyAmountToReturn * currencyValue]);
+     }
+   }
+   return change;
  }
 }
 
-checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1],
-["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60],
-["ONE HUNDRED", 100]]);
+/* let test1 = checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60],
+["ONE HUNDRED", 100]]); */
+
+let test2 = checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
+
+console.log(test2);
